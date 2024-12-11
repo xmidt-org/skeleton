@@ -1,0 +1,23 @@
+# SPDX-FileCopyrightText: 2024 Comcast Cable Communications Management, LLC
+# SPDX-License-Identifier: Apache-2.0
+---
+auth:
+    disable: true
+servers:
+    health:
+        http:
+            address: :10080
+        path: /
+    metrics:
+        http:
+            address: 127.0.0.1:9361
+        path: /metrics
+    pprof:
+        http:
+            address: 127.0.0.1:9999
+        path: /debug/pprof
+    primary:
+        http:
+            address: :10443
+oker:
+    name: ""
