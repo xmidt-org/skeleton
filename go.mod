@@ -8,7 +8,7 @@ require (
 	github.com/go-kit/kit v0.13.0
 	github.com/goschtalt/goschtalt v0.25.0
 	github.com/goschtalt/yaml-decoder v0.0.1
-	github.com/goschtalt/yaml-encoder v0.0.3
+	github.com/goschtalt/yaml-encoder v0.0.4
 	github.com/lestrrat-go/jwx/v2 v2.1.3
 	github.com/prometheus/client_golang v1.20.5
 	github.com/stretchr/testify v1.10.0
