@@ -113,8 +113,8 @@ github.com/xmidt-org/arrange v0.5.1 h1:JHoU8C03ZQfZAG9Vpudj7RQj97pAHblwm6Co8mepU
 github.com/xmidt-org/arrange v0.5.1/go.mod h1:zeJWY01z21ihPiAnGNF+bELbJANWwsahGE2bzGyyPIs=
 github.com/xmidt-org/bascule v1.1.0 h1:IzdpDQ6HIKaVkQNvbLdmfv7BAmk15SnAJUPyEAVg/Ug=
 github.com/xmidt-org/bascule v1.1.0/go.mod h1:9pJ2rCAVNSANd3C276SuJEFwXIjZ8xofHV7LYh2ylWs=
-github.com/xmidt-org/candlelight v0.1.22 h1:4cTvBq71s2HJrIIDqOgRjNbY2owVt5Dt3OO62o8bKx0=
-github.com/xmidt-org/candlelight v0.1.22/go.mod h1:JP//DhMaHNQYFzCEGmENEyOpmTw8wqkm1NOeE0oYw4w=
+github.com/xmidt-org/candlelight v0.1.23 h1:3houJjBksAPIR5AzqA1coJHiHclITKaPLmLSxSovGn8=
+github.com/xmidt-org/candlelight v0.1.23/go.mod h1:lA3d2jFvE3/xv0huXmB2yqiCoKxIBGUJkm3d8lvpU+k=
 github.com/xmidt-org/eventor v1.0.23 h1:BYRLNlvFs2xdWFH2mJZxtoadV2LzXGhUsNgdd/XsbvY=
 github.com/xmidt-org/eventor v1.0.23/go.mod h1:rnoyWsy2Emwa3sNMF5x0c/ykUy4sk5W+1zyLUOmP1gw=
 github.com/xmidt-org/httpaux v0.4.2 h1:O6KTPy9Dtx6m5Ezb0nCQeAZWvBDgZvx82P16FSNauIE=
@@ -123,8 +123,8 @@ github.com/xmidt-org/sallust v0.2.3 h1:NtOp/8sw0Y+HDpIhplFl+UJDNN/hgazEl+2vhkywm
 github.com/xmidt-org/sallust v0.2.3/go.mod h1:heTYyv9B5PjMEvVASrUSoqk+T0zEu3fNNrhJp5kj+rk=
 github.com/xmidt-org/touchstone v0.1.7 h1:gi3uXLDhXONe+vdVAa9xQBucMD/tJ74NMER2Lw2lo7U=
 github.com/xmidt-org/touchstone v0.1.7/go.mod h1:cuukL7BhuCX6OIEhDymFnR5mRw3wBwKFdNUOzMYxE20=
-github.com/xmidt-org/wrp-go/v3 v3.6.0 h1:g8qk4Xtzm7f9AslSlhv46syb9FJpDdyOSqVlUa45L7g=
-github.com/xmidt-org/wrp-go/v3 v3.6.0/go.mod h1:eyMj+q/7LQ4SU6Z3s6VOwuTVSh6/DJBb2soBGBFSung=
+github.com/xmidt-org/wrp-go/v3 v3.7.0 h1:m9ghdq79Zzb0WjomUJ02rzFpI0RK8KTjArYpNIwx1fc=
+github.com/xmidt-org/wrp-go/v3 v3.7.0/go.mod h1:eyMj+q/7LQ4SU6Z3s6VOwuTVSh6/DJBb2soBGBFSung=
 go.opentelemetry.io/otel v1.29.0 h1:PdomN/Al4q/lN6iBJEN3AwPvUiHPMlt93c8bqTG5Llw=
 go.opentelemetry.io/otel v1.29.0/go.mod h1:N/WtXPs1CNCUEx+Agz5uouwCba+i+bJGFicT8SR4NP8=
 go.opentelemetry.io/otel/exporters/jaeger v1.17.0 h1:D7UpUy2Xc2wsi1Ras6V40q806WM07rqoCWzXu7Sqy+4=
