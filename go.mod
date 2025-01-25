@@ -6,7 +6,7 @@ require (
 	github.com/alecthomas/kong v1.6.1
 	github.com/go-chi/chi/v5 v5.2.0
 	github.com/go-kit/kit v0.13.0
-	github.com/goschtalt/goschtalt v0.25.0
+	github.com/goschtalt/goschtalt v0.26.0
 	github.com/goschtalt/yaml-decoder v0.0.1
 	github.com/goschtalt/yaml-encoder v0.0.4
 	github.com/lestrrat-go/jwx/v2 v2.1.3
@@ -45,7 +45,6 @@ require (
 	github.com/lestrrat-go/httprc v1.0.6 // indirect
 	github.com/lestrrat-go/iter v1.0.2 // indirect
 	github.com/lestrrat-go/option v1.0.1 // indirect
-	github.com/mitchellh/mapstructure v1.5.0 // indirect
 	github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822 // indirect
 	github.com/openzipkin/zipkin-go v0.4.3 // indirect
 	github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 // indirect
