@@ -1,6 +1,7 @@
 module github.com/xmidt-org/skeleton
 
 go 1.23.1
+toolchain go1.24.1
 
 require (
 	github.com/alecthomas/kong v1.9.0
@@ -17,7 +18,7 @@ require (
 	github.com/xmidt-org/candlelight v0.2.1
 	github.com/xmidt-org/eventor v1.0.23
 	github.com/xmidt-org/httpaux v0.4.2
-	github.com/xmidt-org/sallust v0.2.3
+	github.com/xmidt-org/sallust v0.2.4
 	github.com/xmidt-org/touchstone v0.1.7
 	go.uber.org/fx v1.23.0
 	go.uber.org/zap v1.27.0
@@ -66,11 +67,11 @@ require (
 	go.opentelemetry.io/otel/sdk v1.29.0 // indirect
 	go.opentelemetry.io/otel/trace v1.29.0 // indirect
 	go.opentelemetry.io/proto/otlp v1.3.1 // indirect
-	go.uber.org/dig v1.18.0 // indirect
+	go.uber.org/dig v1.18.1 // indirect
 	go.uber.org/multierr v1.11.0 // indirect
 	golang.org/x/crypto v0.32.0 // indirect
 	golang.org/x/net v0.33.0 // indirect
-	golang.org/x/sys v0.29.0 // indirect
+	golang.org/x/sys v0.31.0 // indirect
 	golang.org/x/text v0.21.0 // indirect
 	google.golang.org/genproto/googleapis/api v0.0.0-20240822170219-fc7c04adadcd // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20240822170219-fc7c04adadcd // indirect
