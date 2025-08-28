@@ -6,7 +6,7 @@ toolchain go1.24.1
 
 require (
 	github.com/alecthomas/kong v1.12.1
-	github.com/go-chi/chi/v5 v5.2.2
+	github.com/go-chi/chi/v5 v5.2.3
 	github.com/go-kit/kit v0.13.0
 	github.com/goschtalt/goschtalt v0.26.1
 	github.com/goschtalt/yaml-decoder v0.0.1
