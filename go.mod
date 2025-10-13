@@ -8,7 +8,7 @@ require (
 	github.com/alecthomas/kong v1.12.1
 	github.com/go-chi/chi/v5 v5.2.3
 	github.com/go-kit/kit v0.13.0
-	github.com/goschtalt/goschtalt v0.26.1
+	github.com/goschtalt/goschtalt v0.27.0
 	github.com/goschtalt/yaml-decoder v0.0.1
 	github.com/goschtalt/yaml-encoder v0.0.4
 	github.com/lestrrat-go/jwx/v2 v2.1.6
