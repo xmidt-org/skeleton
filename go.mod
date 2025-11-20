@@ -22,7 +22,7 @@ require (
 	github.com/xmidt-org/sallust v0.2.4
 	github.com/xmidt-org/touchstone v0.1.7
 	go.uber.org/fx v1.24.0
-	go.uber.org/zap v1.27.0
+	go.uber.org/zap v1.27.1
 	gopkg.in/dealancer/validate.v2 v2.1.0
 )
 
