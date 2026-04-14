@@ -121,8 +121,8 @@ github.com/xmidt-org/httpaux v0.4.2 h1:O6KTPy9Dtx6m5Ezb0nCQeAZWvBDgZvx82P16FSNau
 github.com/xmidt-org/httpaux v0.4.2/go.mod h1:tZJ+SBoGNCxDOLopuSqrxaCkIVAQ+aPjNRf2XfMVwJA=
 github.com/xmidt-org/sallust v0.2.4 h1:+87+5U8svbxvuz+Fg0fJoPCdY9LmlACKSq+NW3dqkFg=
 github.com/xmidt-org/sallust v0.2.4/go.mod h1:cJRPe2D9gDzCrA18y4XbOJmhAJH2Q1vvz+tZVnUH87Y=
-github.com/xmidt-org/touchstone v0.1.7 h1:gi3uXLDhXONe+vdVAa9xQBucMD/tJ74NMER2Lw2lo7U=
-github.com/xmidt-org/touchstone v0.1.7/go.mod h1:cuukL7BhuCX6OIEhDymFnR5mRw3wBwKFdNUOzMYxE20=
+github.com/xmidt-org/touchstone v0.1.8 h1:jpA7j2pPtuP6hFr/LcT25cvfYkztWOp3Tj1ZCvqIvMw=
+github.com/xmidt-org/touchstone v0.1.8/go.mod h1:3nKZJlgWCDDThy/djXF2/wiwmRyCcDBSWBrSuUSy3ME=
 github.com/xmidt-org/wrp-go/v3 v3.7.0 h1:m9ghdq79Zzb0WjomUJ02rzFpI0RK8KTjArYpNIwx1fc=
 github.com/xmidt-org/wrp-go/v3 v3.7.0/go.mod h1:eyMj+q/7LQ4SU6Z3s6VOwuTVSh6/DJBb2soBGBFSung=
 go.opentelemetry.io/auto/sdk v1.2.1 h1:jXsnJ4Lmnqd11kwkBV2LgLoFMZKizbCi5fNZ/ipaZ64=
