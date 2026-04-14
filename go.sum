@@ -109,8 +109,8 @@ github.com/stretchr/testify v1.11.1 h1:7s2iGBzp5EwR7/aIZr8ao5+dra3wiQyKjjFuvgVKu
 github.com/stretchr/testify v1.11.1/go.mod h1:wZwfW3scLgRK+23gO65QZefKpKQRnfz6sD981Nm4B6U=
 github.com/ugorji/go/codec v1.2.12 h1:9LC83zGrHhuUA9l16C9AHXAqEV/2wBQ4nkvumAE65EE=
 github.com/ugorji/go/codec v1.2.12/go.mod h1:UNopzCgEMSXjBc6AOMqYvWC1ktqTAfzJZUZgYf6w6lg=
-github.com/xmidt-org/arrange v0.5.2 h1:VFt5sSUbz0ytS8UuPhtGPvbFImV9tuOv0Yenj+mloIQ=
-github.com/xmidt-org/arrange v0.5.2/go.mod h1:3LXJc3KgF7L1KidPc5UrN/pbZLJVvzxocJG0GyfaceM=
+github.com/xmidt-org/arrange v0.5.3 h1:RJT7kPMI4C3a+7dv8GgD0WOXkZnkAq2lW9gNl4LscKM=
+github.com/xmidt-org/arrange v0.5.3/go.mod h1:3LXJc3KgF7L1KidPc5UrN/pbZLJVvzxocJG0GyfaceM=
 github.com/xmidt-org/bascule v1.1.0 h1:IzdpDQ6HIKaVkQNvbLdmfv7BAmk15SnAJUPyEAVg/Ug=
 github.com/xmidt-org/bascule v1.1.0/go.mod h1:9pJ2rCAVNSANd3C276SuJEFwXIjZ8xofHV7LYh2ylWs=
 github.com/xmidt-org/candlelight v0.2.5 h1:wEnKrtt459lNwPbkKdM1/uAEbnG/goyYbx8k7/e8PQY=
