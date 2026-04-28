@@ -20,7 +20,7 @@ require (
 	github.com/xmidt-org/sallust v0.2.5
 	github.com/xmidt-org/touchstone v0.1.8
 	go.uber.org/fx v1.24.0
-	go.uber.org/zap v1.27.1
+	go.uber.org/zap v1.28.0
 	gopkg.in/dealancer/validate.v2 v2.1.0
 )
 
