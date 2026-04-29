@@ -14,7 +14,7 @@ require (
 	github.com/stretchr/testify v1.11.1
 	github.com/xmidt-org/arrange v0.5.4
 	github.com/xmidt-org/bascule v1.1.1
-	github.com/xmidt-org/candlelight v0.2.10
+	github.com/xmidt-org/candlelight v0.2.11
 	github.com/xmidt-org/eventor v1.0.49
 	github.com/xmidt-org/httpaux v0.4.3
 	github.com/xmidt-org/sallust v0.2.5
