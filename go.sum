@@ -113,8 +113,8 @@ github.com/xmidt-org/arrange v0.5.4 h1:I3K69dVTdFDCKaDCDINpFDwizoOvNch5P6FQrBwtB
 github.com/xmidt-org/arrange v0.5.4/go.mod h1:As2xqHS81BGDvn4lZiGurG40VXNPGsv0yiIGmtL8F/8=
 github.com/xmidt-org/bascule v1.1.1 h1:Njx4utxYKKQqfNxy/tyVZbzuj04RsZrVQsq4NcclGaY=
 github.com/xmidt-org/bascule v1.1.1/go.mod h1:gqPlJVhz5/5yJnp6XZTaJlQr+/objL6xFK2KA3VBqyI=
-github.com/xmidt-org/candlelight v0.2.10 h1:9pa9pVsYKi/dzuxemPiFY2surYBwJ6JxcOvwCJ+9nPM=
-github.com/xmidt-org/candlelight v0.2.10/go.mod h1:5OMLPpvD87Ic5Ve3WeaAcFAElw50EDUad71ANjaG3DY=
+github.com/xmidt-org/candlelight v0.2.11 h1:JTOlz5SECMuz9bS/6ICyMKopoETa/3h49UyHvrpe7Mo=
+github.com/xmidt-org/candlelight v0.2.11/go.mod h1:5OMLPpvD87Ic5Ve3WeaAcFAElw50EDUad71ANjaG3DY=
 github.com/xmidt-org/eventor v1.0.49 h1:QUZb2iw/i9xSWYab8zKt+F1lnNMMkPL7C8jA3tys7rk=
 github.com/xmidt-org/eventor v1.0.49/go.mod h1:hDYVga+QLP8ZfwIBtmDvXRtYbY2dPa6i0PNQrqtwYUg=
 github.com/xmidt-org/httpaux v0.4.3 h1:hrA8tAgMFoZkBZrysSmmait9CP7P3hMAYQjnpFJNqk8=
