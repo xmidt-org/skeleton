@@ -17,7 +17,7 @@ require (
 	github.com/xmidt-org/candlelight v0.2.11
 	github.com/xmidt-org/eventor v1.0.49
 	github.com/xmidt-org/httpaux v0.4.3
-	github.com/xmidt-org/sallust v0.2.5
+	github.com/xmidt-org/sallust v0.2.6
 	github.com/xmidt-org/touchstone v0.1.8
 	go.uber.org/fx v1.24.0
 	go.uber.org/zap v1.28.0
