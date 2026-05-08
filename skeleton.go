@@ -14,16 +14,14 @@ import (
 	_ "github.com/goschtalt/yaml-encoder"
 	"github.com/xmidt-org/arrange/arrangehttp"
 	"github.com/xmidt-org/candlelight"
-	"github.com/xmidt-org/sallust"
 	"github.com/xmidt-org/skeleton/internal/apiauth"
+	"github.com/xmidt-org/skeleton/internal/loggerfx"
 	"github.com/xmidt-org/skeleton/internal/metrics"
 	"github.com/xmidt-org/skeleton/internal/oker"
 	"github.com/xmidt-org/touchstone"
 	"github.com/xmidt-org/touchstone/touchhttp"
 
 	"go.uber.org/fx"
-	"go.uber.org/fx/fxevent"
-	"go.uber.org/zap"
 )
 
 const (
@@ -56,23 +54,28 @@ func Main(args []string, run bool) error { // nolint: funlen
 
 		// Capture the command line arguments.
 		cli *CLI
+
+		// Capture the error.
+		err error
 	)
 
+	cli, err = provideCLIWithOpts(args, false)
+	if err != nil {
+		return err
+	}
+
 	app := fx.New(
-		fx.Supply(cliArgs(args)),
+		fx.Supply(cli),
 		fx.Populate(&g),
 		fx.Populate(&gscfg),
-		fx.Populate(&cli),
 
-		fx.WithLogger(func(log *zap.Logger) fxevent.Logger {
-			return &fxevent.ZapLogger{Logger: log}
-		}),
+		loggerfx.Module(),
+		fx.Supply(
+			fx.Annotate(cli.Dev, fx.ResultTags(`name:"loggerfx.dev_mode"`)), // nolint: staticcheck
+		),
 
 		fx.Provide(
-			provideCLI,
-			provideLogger,
 			provideConfig,
-			goschtalt.UnmarshalFunc[sallust.Config]("logging"),
 			goschtalt.UnmarshalFunc[candlelight.Config]("tracing"),
 			goschtalt.UnmarshalFunc[touchstone.Config]("prometheus"),
 			goschtalt.UnmarshalFunc[touchhttp.Config]("prometheus_handler"),
@@ -126,9 +129,11 @@ func Main(args []string, run bool) error { // nolint: funlen
 		touchstone.Provide(),
 		touchhttp.Provide(),
 		metrics.Provide(),
+
+		loggerfx.SyncOnShutdown(),
 	)
 
-	if cli != nil && cli.Graph != "" {
+	if cli.Graph != "" {
 		_ = os.WriteFile(cli.Graph, []byte(g), 0600)
 	}
 
@@ -151,15 +156,8 @@ func Main(args []string, run bool) error { // nolint: funlen
 	return nil
 }
 
-// Provides a named type so it's a bit easier to flow through & use in fx.
-type cliArgs []string
-
 // Handle the CLI processing and return the processed input.
-func provideCLI(args cliArgs) (*CLI, error) {
-	return provideCLIWithOpts(args, false)
-}
-
-func provideCLIWithOpts(args cliArgs, testOpts bool) (*CLI, error) {
+func provideCLIWithOpts(args []string, testOpts bool) (*CLI, error) {
 	var cli CLI
 
 	// Create a no-op option to satisfy the kong.New() call.
