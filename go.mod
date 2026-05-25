@@ -4,7 +4,7 @@ go 1.25.0
 
 require (
 	github.com/alecthomas/kong v1.15.0
-	github.com/go-chi/chi/v5 v5.2.5
+	github.com/go-chi/chi/v5 v5.3.0
 	github.com/go-kit/kit v0.13.0
 	github.com/goschtalt/goschtalt v0.28.1
 	github.com/goschtalt/yaml-decoder v0.0.1
