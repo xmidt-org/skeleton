@@ -111,8 +111,8 @@ github.com/ugorji/go/codec v1.2.12 h1:9LC83zGrHhuUA9l16C9AHXAqEV/2wBQ4nkvumAE65E
 github.com/ugorji/go/codec v1.2.12/go.mod h1:UNopzCgEMSXjBc6AOMqYvWC1ktqTAfzJZUZgYf6w6lg=
 github.com/xmidt-org/arrange v0.5.5 h1:P03c5hgGdFIZE/+6O+/YWus1AYkJP28TFBSNkhEdvGY=
 github.com/xmidt-org/arrange v0.5.5/go.mod h1:OYPIS2K1k4ZPjUJpdtRFQwhuv5rtunCVXwJYxqW6eDE=
-github.com/xmidt-org/bascule v1.1.2 h1:wX5jh/fHRoG14on8hhFCLdPl6jfI+kbf/wGqeOHBLks=
-github.com/xmidt-org/bascule v1.1.2/go.mod h1:KYbYdbzoB5obUMIDR60U0lCo6z1/SqB3UkepD7zNvzY=
+github.com/xmidt-org/bascule v1.1.4 h1:lNwMzmEorR5KdHMh1BavvfGSk52O2mEjfR6EPJMh1ss=
+github.com/xmidt-org/bascule v1.1.4/go.mod h1:nZmLrQxw7yL+8M8jqFdTSrxR8/kSMvDCK8vbg9ECqgM=
 github.com/xmidt-org/candlelight v0.2.11 h1:JTOlz5SECMuz9bS/6ICyMKopoETa/3h49UyHvrpe7Mo=
 github.com/xmidt-org/candlelight v0.2.11/go.mod h1:5OMLPpvD87Ic5Ve3WeaAcFAElw50EDUad71ANjaG3DY=
 github.com/xmidt-org/eventor v1.0.49 h1:QUZb2iw/i9xSWYab8zKt+F1lnNMMkPL7C8jA3tys7rk=
