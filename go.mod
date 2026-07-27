@@ -10,7 +10,7 @@ require (
 	github.com/goschtalt/yaml-decoder v0.0.1
 	github.com/goschtalt/yaml-encoder v0.0.4
 	github.com/lestrrat-go/jwx/v2 v2.1.7
-	github.com/prometheus/client_golang v1.24.0
+	github.com/prometheus/client_golang v1.24.1
 	github.com/stretchr/testify v1.11.1
 	github.com/xmidt-org/arrange v0.5.5
 	github.com/xmidt-org/bascule v1.1.6
@@ -48,7 +48,7 @@ require (
 	github.com/openzipkin/zipkin-go v0.4.3 // indirect
 	github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 // indirect
 	github.com/prometheus/client_model v0.6.2 // indirect
-	github.com/prometheus/common v0.70.0 // indirect
+	github.com/prometheus/common v0.70.1 // indirect
 	github.com/prometheus/procfs v0.21.1 // indirect
 	github.com/segmentio/asm v1.2.1 // indirect
 	github.com/stretchr/objx v0.5.3 // indirect
@@ -69,7 +69,7 @@ require (
 	go.uber.org/dig v1.19.0 // indirect
 	go.uber.org/multierr v1.11.0 // indirect
 	golang.org/x/crypto v0.54.0 // indirect
-	golang.org/x/net v0.56.0 // indirect
+	golang.org/x/net v0.57.0 // indirect
 	golang.org/x/sys v0.47.0 // indirect
 	golang.org/x/text v0.40.0 // indirect
 	google.golang.org/genproto/googleapis/api v0.0.0-20260622175928-b703f567277d // indirect
