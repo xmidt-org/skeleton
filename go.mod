@@ -13,7 +13,7 @@ require (
 	github.com/prometheus/client_golang v1.24.1
 	github.com/stretchr/testify v1.12.1
 	github.com/xmidt-org/arrange v0.5.8
-	github.com/xmidt-org/bascule v1.1.8
+	github.com/xmidt-org/bascule v1.1.9
 	github.com/xmidt-org/candlelight v0.2.17
 	github.com/xmidt-org/eventor v1.0.50
 	github.com/xmidt-org/httpaux v0.4.4
