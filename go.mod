@@ -16,7 +16,7 @@ require (
 	github.com/xmidt-org/bascule v1.1.8
 	github.com/xmidt-org/candlelight v0.2.17
 	github.com/xmidt-org/eventor v1.0.50
-	github.com/xmidt-org/httpaux v0.4.4
+	github.com/xmidt-org/httpaux v0.4.5
 	github.com/xmidt-org/sallust v0.2.10
 	github.com/xmidt-org/touchstone v0.1.8
 	go.uber.org/fx v1.24.0

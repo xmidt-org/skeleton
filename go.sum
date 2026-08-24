@@ -114,8 +114,8 @@ github.com/xmidt-org/candlelight v0.2.17 h1:1fYNNK782/R1S/8aTisztGzRPubRw89IsFdV
 github.com/xmidt-org/candlelight v0.2.17/go.mod h1:nP5D99fWOGSBvI+2WvMV1thoZBVxie4arT61zuTXsss=
 github.com/xmidt-org/eventor v1.0.50 h1:ULd/oEGxjclejPnHW4idYnUJ3zEbOAj6fpZ1XADvf+0=
 github.com/xmidt-org/eventor v1.0.50/go.mod h1:Gh3TsQRRBx8zmMmY6oLIX0mV8UGZk/Mw6BDJdMcY0rY=
-github.com/xmidt-org/httpaux v0.4.4 h1:yFhN31QArGtoTaaFtjHTMVkj58bLSPio0QVYP0V8YI4=
-github.com/xmidt-org/httpaux v0.4.4/go.mod h1:48yhfIAFOEQlK8IxwxmSODaL7fT/l3DRpBBoItbwNPc=
+github.com/xmidt-org/httpaux v0.4.5 h1:+/YVnfWlUn7FJJbNguYgBPxzih32lPGEt30sSSPN2F0=
+github.com/xmidt-org/httpaux v0.4.5/go.mod h1:t+5YuVNn1vWYVVS30MbdprFEkSL+wWCrJWti+7LP+ls=
 github.com/xmidt-org/sallust v0.2.10 h1:q5RR3zZ22+FHIGGLNTlARdSqGKYVIQeWL320NybHhxk=
 github.com/xmidt-org/sallust v0.2.10/go.mod h1:SWs5tDl0oyi1bBgvVU8ucxaR1qjPO66ecyLW8/cAzUk=
 github.com/xmidt-org/touchstone v0.1.8 h1:jpA7j2pPtuP6hFr/LcT25cvfYkztWOp3Tj1ZCvqIvMw=
