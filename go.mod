@@ -1,6 +1,6 @@
 module github.com/xmidt-org/skeleton
 
-go 1.26
+go 1.27.0
 
 require (
 	github.com/alecthomas/kong v1.16.1
@@ -13,7 +13,7 @@ require (
 	github.com/prometheus/client_golang v1.24.1
 	github.com/stretchr/testify v1.12.1
 	github.com/xmidt-org/arrange v0.5.10
-	github.com/xmidt-org/bascule v1.1.9
+	github.com/xmidt-org/bascule v1.2.0
 	github.com/xmidt-org/candlelight v0.2.19
 	github.com/xmidt-org/eventor v1.0.51
 	github.com/xmidt-org/httpaux v0.4.5
@@ -39,10 +39,13 @@ require (
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.30.0 // indirect
 	github.com/leodido/go-urn v1.2.4 // indirect
 	github.com/lestrrat-go/blackmagic v1.0.4 // indirect
+	github.com/lestrrat-go/dsig v1.4.0 // indirect
 	github.com/lestrrat-go/httpcc v1.0.1 // indirect
 	github.com/lestrrat-go/httprc v1.0.6 // indirect
 	github.com/lestrrat-go/iter v1.0.2 // indirect
+	github.com/lestrrat-go/jwx/v4 v4.4.0 // indirect
 	github.com/lestrrat-go/option v1.0.1 // indirect
+	github.com/lestrrat-go/option/v3 v3.0.0-alpha1 // indirect
 	github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822 // indirect
 	github.com/openzipkin/zipkin-go v0.4.3 // indirect
 	github.com/prometheus/client_model v0.6.2 // indirect
@@ -51,6 +54,7 @@ require (
 	github.com/segmentio/asm v1.2.1 // indirect
 	github.com/stretchr/objx v0.5.3 // indirect
 	github.com/ugorji/go/codec v1.2.12 // indirect
+	github.com/valyala/fastjson v1.6.10 // indirect
 	github.com/xmidt-org/wrp-go/v3 v3.7.0 // indirect
 	go.opentelemetry.io/auto/sdk v1.2.1 // indirect
 	go.opentelemetry.io/otel v1.46.0 // indirect
