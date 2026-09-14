@@ -14,7 +14,7 @@ require (
 	github.com/stretchr/testify v1.12.1
 	github.com/xmidt-org/arrange v0.5.10
 	github.com/xmidt-org/bascule v1.2.0
-	github.com/xmidt-org/candlelight v0.2.19
+	github.com/xmidt-org/candlelight v0.2.20
 	github.com/xmidt-org/eventor v1.0.51
 	github.com/xmidt-org/httpaux v0.4.5
 	github.com/xmidt-org/sallust v0.2.10
@@ -77,7 +77,7 @@ require (
 	golang.org/x/text v0.41.0 // indirect
 	google.golang.org/genproto/googleapis/api v0.0.0-20260819154853-08b0e4226688 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20260819154853-08b0e4226688 // indirect
-	google.golang.org/grpc v1.83.1 // indirect
+	google.golang.org/grpc v1.83.2 // indirect
 	google.golang.org/protobuf v1.36.12 // indirect
 	gopkg.in/natefinch/lumberjack.v2 v2.2.1 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
