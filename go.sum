@@ -116,8 +116,8 @@ github.com/valyala/fastjson v1.6.10 h1:/yjJg8jaVQdYR3arGxPE2X5z89xrlhS0eGXdv+ADT
 github.com/valyala/fastjson v1.6.10/go.mod h1:e6FubmQouUNP73jtMLmcbxS6ydWIpOfhz34TSfO3JaE=
 github.com/xmidt-org/arrange v0.5.10 h1:nB3ufAq8wzZhD7CvJCJWDQ1v+AwMo7TFlR9v7azUQQM=
 github.com/xmidt-org/arrange v0.5.10/go.mod h1:c4aEwqmzU2UaJ8wJ4vW0cV3MWwxwtzvNpss12KN8tkA=
-github.com/xmidt-org/bascule v1.3.3 h1:114GQIZmm3l+izGas3HVypuNXo1fnizGrV3cNWQKX20=
-github.com/xmidt-org/bascule v1.3.3/go.mod h1:QpHA8gfntHX7tDLs/4rC1ZnBSHNe2XWrDNadm4bI2vU=
+github.com/xmidt-org/bascule v1.4.2 h1:HlgNPxjoZZQN0MeA+JZsPHfVdJe96QOH0vB7CojAByk=
+github.com/xmidt-org/bascule v1.4.2/go.mod h1:qjlmurwfOj2M6f400osg3sQqnrZe+1bNxIfuvJdioOw=
 github.com/xmidt-org/candlelight v0.2.21 h1:8wqnIWzj7rF8DFrsvvXxEzTke+xcXz90SpLBlyLtAv0=
 github.com/xmidt-org/candlelight v0.2.21/go.mod h1:aRjiilFnvGeeunZ7gmoGGIRx/T3gqiTcO80zZW8MG7w=
 github.com/xmidt-org/eventor v1.0.51 h1:9hIbcsQ/dk/z2+ISOUsA7CcTWeYUoS9DAz0Sk/Ft1hw=
