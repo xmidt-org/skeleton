@@ -14,7 +14,7 @@ require (
 	github.com/stretchr/testify v1.12.1
 	github.com/xmidt-org/arrange v0.5.10
 	github.com/xmidt-org/bascule v1.5.0
-	github.com/xmidt-org/candlelight v0.4.1
+	github.com/xmidt-org/candlelight v0.4.2
 	github.com/xmidt-org/eventor v1.0.51
 	github.com/xmidt-org/httpaux v0.4.5
 	github.com/xmidt-org/sallust v0.2.10
@@ -53,7 +53,7 @@ require (
 	github.com/stretchr/objx v0.5.3 // indirect
 	github.com/tinylib/msgp v1.6.5 // indirect
 	github.com/valyala/fastjson v1.6.10 // indirect
-	github.com/xmidt-org/wrp-go/v5 v5.4.6 // indirect
+	github.com/xmidt-org/wrp-go/v5 v5.4.7 // indirect
 	github.com/xmidt-org/wrphttp v0.4.0 // indirect
 	go.opentelemetry.io/auto/sdk v1.2.1 // indirect
 	go.opentelemetry.io/otel v1.47.0 // indirect
