@@ -13,7 +13,7 @@ require (
 	github.com/prometheus/client_golang v1.25.0
 	github.com/stretchr/testify v1.12.1
 	github.com/xmidt-org/arrange v0.5.10
-	github.com/xmidt-org/bascule v1.8.1
+	github.com/xmidt-org/bascule v1.8.2
 	github.com/xmidt-org/candlelight v0.4.2
 	github.com/xmidt-org/eventor v1.0.51
 	github.com/xmidt-org/httpaux v0.4.5
@@ -41,7 +41,7 @@ require (
 	github.com/lestrrat-go/httpcc v1.0.1 // indirect
 	github.com/lestrrat-go/httprc v1.0.6 // indirect
 	github.com/lestrrat-go/iter v1.0.2 // indirect
-	github.com/lestrrat-go/jwx/v4 v4.5.0 // indirect
+	github.com/lestrrat-go/jwx/v4 v4.6.0 // indirect
 	github.com/lestrrat-go/option v1.0.1 // indirect
 	github.com/lestrrat-go/option/v3 v3.0.0-alpha1 // indirect
 	github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822 // indirect
@@ -52,7 +52,6 @@ require (
 	github.com/segmentio/asm v1.2.1 // indirect
 	github.com/stretchr/objx v0.5.3 // indirect
 	github.com/tinylib/msgp v1.6.5 // indirect
-	github.com/valyala/fastjson v1.6.10 // indirect
 	github.com/xmidt-org/wrp-go/v5 v5.4.7 // indirect
 	github.com/xmidt-org/wrphttp v0.4.0 // indirect
 	go.opentelemetry.io/auto/sdk v1.2.1 // indirect
