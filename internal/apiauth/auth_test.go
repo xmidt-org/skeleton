@@ -4,6 +4,8 @@
 package apiauth
 
 import (
+	"crypto/rand"
+	"crypto/rsa"
 	"encoding/json"
 	"fmt"
 	"net/http"
@@ -11,9 +13,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/lestrrat-go/jwx/v2/jwa"
-	"github.com/lestrrat-go/jwx/v2/jwk"
-	"github.com/lestrrat-go/jwx/v2/jwt"
+	"github.com/lestrrat-go/jwx/v4/jwa"
+	"github.com/lestrrat-go/jwx/v4/jwk"
+	"github.com/lestrrat-go/jwx/v4/jwt"
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/suite"
 	"github.com/xmidt-org/bascule"
@@ -56,22 +58,14 @@ type AuthTestSuite struct {
 }
 
 func (suite *AuthTestSuite) initializeKey() {
-	var err error
-	suite.testKeyPriv, err = jwk.ParseKey([]byte(`{
-    "p": "7HMYtb-1dKyDp1OkdKc9WDdVMw3vtiiKDyuyRwnnwMOoYLPYxqE0CUMzw8_zXuzq7WJAmGiFd5q7oVzkbHzrtQ",
-    "kty": "RSA",
-    "q": "5253lCAgBLr8SR_VzzDtk_3XTHVmVIgniajMl7XM-ttrUONV86DoIm9VBx6ywEKpj5Xv3USBRNlpf8OXqWVhPw",
-    "d": "G7RLbBiCkiZuepbu46G0P8J7vn5l8G6U78gcMRdEhEsaXGZz_ZnbqjW6u8KI_3akrBT__GDPf8Hx8HBNKX5T9jNQW0WtJg1XnwHOK_OJefZl2fnx-85h3tfPD4zI3m54fydce_2kDVvqTOx_XXdNJD7v5TIAgvCymQv7qvzQ0VE",
-    "e": "AQAB",
-    "use": "sig",
-    "kid": "test",
-    "qi": "a_6YlMdA9b6piRodA0MR7DwjbALlMan19wj_VkgZ8Xoilq68sGaV2CQDoAdsTW9Mjt5PpCxvJawz0AMr6LIk9w",
-    "dp": "s55HgiGs_YHjzSOsBXXaEv6NuWf31l_7aMTf_DkZFYVMjpFwtotVFUg4taJuFYlSeZwux9h2s0IXEOCZIZTQFQ",
-    "alg": "RS256",
-    "dq": "M79xoX9laWleDAPATSnFlbfGsmP106T2IkPKK4oNIXJ6loWerHEoNrrqKkNk-LRvMZn3HmS4-uoaOuVDPi9bBQ",
-    "n": "1cHjMu7H10hKxnoq3-PJT9R25bkgVX1b39faqfecC82RMcD2DkgCiKGxkCmdUzuebpmXCZuxp-rVVbjrnrI5phAdjshZlkHwV0tyJOcerXsPgu4uk_VIJgtLdvgUAtVEd8-ZF4Y9YNOAKtf2AHAoRdP0ZVH7iVWbE6qU-IN2los"
-}`))
+	raw, err := rsa.GenerateKey(rand.Reader, 2048)
 	suite.Require().NoError(err)
+
+	suite.testKeyPriv, err = jwk.Import[jwk.Key](raw)
+	suite.Require().NoError(err)
+	suite.Require().NoError(suite.testKeyPriv.Set(jwk.KeyIDKey, "test"))
+	suite.Require().NoError(suite.testKeyPriv.Set(jwk.KeyUsageKey, "sig"))
+	suite.Require().NoError(suite.testKeyPriv.Set(jwk.AlgorithmKey, jwa.RS256()))
 
 	suite.testKeyPub, err = suite.testKeyPriv.PublicKey()
 	suite.Require().NoError(err)
@@ -116,7 +110,7 @@ func (suite *AuthTestSuite) createJWT() {
 
 	suite.Require().NoError(err)
 
-	suite.signedJWT, err = jwt.Sign(suite.testJWT, jwt.WithKey(jwa.RS256, suite.testKeyPriv))
+	suite.signedJWT, err = jwt.Sign(suite.testJWT, jwt.WithKey(jwa.RS256(), suite.testKeyPriv))
 	suite.Require().NoError(err)
 }
 

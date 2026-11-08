@@ -6,16 +6,16 @@ package apiauth
 import (
 	"context"
 	"errors"
-	"fmt"
 	"net/http"
+	"slices"
 	"time"
 
-	"github.com/lestrrat-go/jwx/v2/jwk"
-	"github.com/lestrrat-go/jwx/v2/jwt"
+	"github.com/lestrrat-go/jwx/v4/jwt"
 	"github.com/xmidt-org/arrange/arrangehttp"
 	"github.com/xmidt-org/bascule"
 	"github.com/xmidt-org/bascule/basculehttp"
 	"github.com/xmidt-org/bascule/basculejwt"
+	"github.com/xmidt-org/clortho"
 )
 
 // Config is a struct that holds the configuration for the Auth middleware.
@@ -55,13 +55,6 @@ type Provider struct {
 
 	// HTTPClient is the configuration for the http client to use to get the public keys.
 	HTTPClient arrangehttp.ClientConfig
-
-	// DisableAutoAddMissingAlgorithm is a flag that if set to true, will disable
-	// the automatic addition of missing algorithms to keys that are missing them.
-	// If this is not set, then the default is to add missing algorithms to keys
-	// that are missing the "alg" field.  Sometimes the public key provider does
-	// not provide the "alg" field, and this function can be used to add it.
-	DisableAutoAddMissingAlgorithm bool
 }
 
 // Basic is a map of usernames to passwords.
@@ -93,14 +86,14 @@ func New(opts ...Option) (*Auth, error) {
 	if auth.config.Basic != nil {
 		auth.middleware, err = auth.config.Basic.middleware()
 		if err != nil {
-			return nil, errors.Join(err, fmt.Errorf("error creating basic auth middleware"))
+			return nil, errors.Join(err, errors.New("error creating basic auth middleware"))
 		}
 	}
 
 	if auth.config.JWT.KeyProvider.URL != "" {
 		auth.middleware, err = auth.config.JWT.middleware(ctx)
 		if err != nil {
-			return nil, errors.Join(err, fmt.Errorf("error creating jwt middleware"))
+			return nil, errors.Join(err, errors.New("error creating jwt middleware"))
 		}
 	}
 
@@ -155,21 +148,21 @@ func (cfg *Basic) middleware() (*basculehttp.Middleware, error) {
 }
 
 func (cfg *JWT) middleware(ctx context.Context) (*basculehttp.Middleware, error) {
-	keys, err := cfg.KeyProvider.toKeySet(ctx)
+	keys, err := cfg.KeyProvider.newKeyProvider(ctx)
 	if err != nil {
-		return nil, errors.Join(err, fmt.Errorf("error getting public keys"))
+		return nil, errors.Join(err, errors.New("error getting public keys"))
 	}
 
-	jwtp, err := basculejwt.NewTokenParser(jwt.WithKeySet(keys))
+	jwtp, err := basculejwt.NewTokenParser(jwt.WithKeyProvider(keys))
 	if err != nil {
-		return nil, errors.Join(err, fmt.Errorf("error creating token parser"))
+		return nil, errors.Join(err, errors.New("error creating token parser"))
 	}
 
 	tp, err := basculehttp.NewAuthorizationParser(
 		basculehttp.WithScheme(basculehttp.SchemeBearer, jwtp),
 	)
 	if err != nil {
-		return nil, errors.Join(err, fmt.Errorf("error creating authorization parser"))
+		return nil, errors.Join(err, errors.New("error creating authorization parser"))
 	}
 
 	m, err := basculehttp.NewMiddleware(
@@ -199,38 +192,85 @@ func (cfg *JWT) valid(token bascule.Token) error {
 
 	capabilities, _ := bascule.GetCapabilities(token)
 	for _, capability := range capabilities {
-		for _, serviceCapability := range cfg.RequiredServiceCapabilities {
-			if capability == serviceCapability {
-				return nil
-			}
+		if slices.Contains(cfg.RequiredServiceCapabilities, capability) {
+			return nil
 		}
 	}
 
 	return bascule.ErrUnauthorized
 }
 
-func (cfg *Provider) toKeySet(ctx context.Context) (jwk.Set, error) {
-	cache := jwk.NewCache(ctx)
+// keyReadyTimeout is how long to wait for the first set of public keys.
+const keyReadyTimeout = 30 * time.Second
 
-	opts := []jwk.RegisterOption{
-		jwk.WithRefreshInterval(cfg.RefreshInterval),
-	}
-
-	if !cfg.DisableAutoAddMissingAlgorithm {
-		opts = append(opts, jwk.WithPostFetcher(mapMissingAlgorithms(ctx)))
-	}
-
+// newKeyProvider builds and starts a clortho key provider and waits for the
+// first set of keys to be retrieved, so a misconfigured provider fails at
+// startup instead of rejecting every token.
+func (cfg *Provider) newKeyProvider(ctx context.Context) (*clortho.KeySetProvider, error) {
 	client, err := cfg.HTTPClient.NewClient()
 	if err != nil {
 		return nil, err
 	}
 
-	opts = append(opts, jwk.WithHTTPClient(client))
-
-	err = cache.Register(cfg.URL, opts...)
+	kp, err := clortho.NewKeySetProvider(clortho.KeySetConfig{
+		Sources: []clortho.RefreshSource{{
+			URI:             cfg.URL,
+			RefreshInterval: cfg.RefreshInterval,
+			Client:          client,
+		}},
+	})
 	if err != nil {
 		return nil, err
 	}
 
-	return jwk.NewCachedSet(cache, cfg.URL), err
+	err = kp.Start(ctx)
+	if err != nil {
+		return nil, err
+	}
+
+	ctx, cancel := context.WithTimeout(ctx, keyReadyTimeout)
+	defer cancel()
+
+	err = waitForKeys(ctx, kp)
+	if err != nil {
+		return nil, errors.Join(err, kp.Stop(context.Background()))
+	}
+
+	return kp, nil
+}
+
+// waitForKeys blocks until every source has been retrieved at least once.
+func waitForKeys(ctx context.Context, kp *clortho.KeySetProvider) error {
+	ticker := time.NewTicker(10 * time.Millisecond)
+	defer ticker.Stop()
+
+	for {
+		ready := true
+		for _, st := range kp.Status() {
+			if st.LastRetrieved.IsZero() {
+				ready = false
+			}
+		}
+
+		if ready {
+			return nil
+		}
+
+		select {
+		case <-ctx.Done():
+			return errors.Join(ctx.Err(), lastError(kp))
+		case <-ticker.C:
+		}
+	}
+}
+
+func lastError(kp *clortho.KeySetProvider) error {
+	var errs []error
+	for _, st := range kp.Status() {
+		if st.LastErr != nil {
+			errs = append(errs, st.LastErr)
+		}
+	}
+
+	return errors.Join(errs...)
 }
