@@ -31,10 +31,10 @@ func (e OkEvent) String() string {
 	buf := strings.Builder{}
 
 	buf.WriteString("oker.OkEvent{\n")
-	buf.WriteString(fmt.Sprintf("  At:         %s\n", e.At.Format(time.RFC3339)))
-	buf.WriteString(fmt.Sprintf("  Duration:   %s\n", e.Duration.String()))
-	buf.WriteString(fmt.Sprintf("  StatusCode: %d\n", e.StatusCode))
-	buf.WriteString(fmt.Sprintf("  Err:        %v\n", e.Err))
+	fmt.Fprintf(&buf, "  At:         %s\n", e.At.Format(time.RFC3339))
+	fmt.Fprintf(&buf, "  Duration:   %s\n", e.Duration.String())
+	fmt.Fprintf(&buf, "  StatusCode: %d\n", e.StatusCode)
+	fmt.Fprintf(&buf, "  Err:        %v\n", e.Err)
 	buf.WriteString("}")
 
 	return buf.String()

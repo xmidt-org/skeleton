@@ -43,14 +43,14 @@ type Servers struct {
 
 type HealthServer struct {
 	HTTP arrangehttp.ServerConfig
-	Path HealthPath //`validate:"empty=false"`
+	Path HealthPath // `validate:"empty=false"`
 }
 
 type HealthPath string
 
 type MetricsServer struct {
 	HTTP arrangehttp.ServerConfig
-	Path MetricsPath //`validate:"empty=false"`
+	Path MetricsPath // `validate:"empty=false"`
 }
 
 type MetricsPath string
@@ -136,38 +136,40 @@ func provideConfig(cli *CLI) (*goschtalt.Config, error) {
 // see what the default configuration is.
 // -----------------------------------------------------------------------------
 
+const networkTCP = "tcp"
+
 var defaultConfig = Config{
 	Servers: Servers{
 		Health: HealthServer{
 			HTTP: arrangehttp.ServerConfig{
-				Network: "tcp",
+				Network: networkTCP,
 				Address: ":80",
 			},
 			Path: HealthPath("/"),
 		},
 		Metrics: MetricsServer{
 			HTTP: arrangehttp.ServerConfig{
-				Network: "tcp",
+				Network: networkTCP,
 				Address: "127.0.0.1:9361",
 			},
 			Path: MetricsPath("/metrics"),
 		},
 		Pprof: PprofServer{
 			HTTP: arrangehttp.ServerConfig{
-				Network: "tcp",
+				Network: networkTCP,
 				Address: "127.0.0.1:9999",
 			},
 			Path: arrangepprof.DefaultPathPrefix,
 		},
 		Primary: PrimaryServer{
 			HTTP: arrangehttp.ServerConfig{
-				Network: "tcp",
+				Network: networkTCP,
 				Address: ":443",
 			},
 		},
 		Alternate: PrimaryServer{
 			HTTP: arrangehttp.ServerConfig{
-				Network: "tcp",
+				Network: networkTCP,
 				Address: "127.0.0.1:8443",
 			},
 		},

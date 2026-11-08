@@ -12,6 +12,12 @@ import (
 )
 
 func main() {
+	os.Exit(run())
+}
+
+// run executes the program and returns the process exit code.  It is separate
+// from main so deferred functions run before the process exits.
+func run() int {
 	defer func() {
 		if r := recover(); r != nil {
 			fmt.Println("stacktrace from panic: \n" + string(debug.Stack()))
@@ -19,11 +25,10 @@ func main() {
 	}()
 
 	err := skeleton.Main(os.Args[1:], true)
-
 	if err == nil {
-		return
+		return 0
 	}
 
 	fmt.Fprintln(os.Stderr, err)
-	os.Exit(-1)
+	return -1
 }

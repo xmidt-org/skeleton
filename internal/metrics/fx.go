@@ -47,7 +47,7 @@ var fxMetrics = []metricDefinition{
 }
 
 func Provide() fx.Option {
-	var opts []fx.Option // nolint: prealloc
+	var opts []fx.Option //nolint:prealloc // size depends on runtime config
 
 	for _, m := range fxMetrics {
 		labels := strings.Split(m.Labels, ",")

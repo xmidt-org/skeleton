@@ -47,7 +47,7 @@ type CLI struct {
 	Files []string `optional:"" short:"f" help:"Specific configuration files or directories."`
 }
 
-func Main(args []string, run bool) error { // nolint: funlen
+func Main(args []string, run bool) error { //nolint:funlen // wires all application components together
 	var (
 		gscfg *goschtalt.Config
 

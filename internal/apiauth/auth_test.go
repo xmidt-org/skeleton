@@ -4,10 +4,10 @@
 package apiauth
 
 import (
+	"context"
 	"crypto/rand"
 	"crypto/rsa"
 	"encoding/json"
-	"fmt"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -136,7 +136,7 @@ func (suite *AuthTestSuite) TestBasicAuth() {
 	auth, err := New(
 		WithConfig(config),
 	)
-	suite.NoError(err)
+	suite.Require().NoError(err)
 
 	var reached int
 	h := auth.middleware.ThenFunc(
@@ -147,14 +147,14 @@ func (suite *AuthTestSuite) TestBasicAuth() {
 		},
 	)
 
-	goodRequest := httptest.NewRequest("GET", "/", nil)
+	goodRequest := httptest.NewRequestWithContext(context.Background(), http.MethodGet, "/", nil)
 	goodRequest.SetBasicAuth(username, config.Basic[username])
 	response := httptest.NewRecorder()
 	h.ServeHTTP(response, goodRequest)
 	suite.Equal(http.StatusOK, response.Code)
 	suite.Equal(1, reached)
 
-	badRequest := httptest.NewRequest("GET", "/", nil)
+	badRequest := httptest.NewRequestWithContext(context.Background(), http.MethodGet, "/", nil)
 	badRequest.SetBasicAuth(username, "some-bad-password")
 	response = httptest.NewRecorder()
 	h.ServeHTTP(response, badRequest)
@@ -189,7 +189,7 @@ func (suite *AuthTestSuite) TestJwtAuth() {
 	auth, err := New(
 		WithConfig(config),
 	)
-	suite.NoError(err)
+	suite.Require().NoError(err)
 
 	var reached int
 	h := auth.middleware.ThenFunc(
@@ -200,15 +200,15 @@ func (suite *AuthTestSuite) TestJwtAuth() {
 		},
 	)
 
-	goodRequest := httptest.NewRequest("GET", "/", nil)
-	goodRequest.Header.Set("Authorization", fmt.Sprintf("Bearer %s", string(suite.signedJWT)))
+	goodRequest := httptest.NewRequestWithContext(context.Background(), http.MethodGet, "/", nil)
+	goodRequest.Header.Set("Authorization", "Bearer "+string(suite.signedJWT))
 	response := httptest.NewRecorder()
 	h.ServeHTTP(response, goodRequest)
 	suite.Equal(http.StatusOK, response.Code)
 	suite.Equal(1, reached)
 
-	badRequest := httptest.NewRequest("GET", "/", nil)
-	badRequest.Header.Set("Authorization", fmt.Sprintf("Bearer %s", "some bad token"))
+	badRequest := httptest.NewRequestWithContext(context.Background(), http.MethodGet, "/", nil)
+	badRequest.Header.Set("Authorization", "Bearer some bad token")
 	response = httptest.NewRecorder()
 	h.ServeHTTP(response, badRequest)
 	suite.Equal(http.StatusBadRequest, response.Code)
@@ -216,8 +216,8 @@ func (suite *AuthTestSuite) TestJwtAuth() {
 
 	// no matching capabilities
 	auth.config.JWT.RequiredServiceCapabilities = []string{"some-other-capability"}
-	forbiddenRequest := httptest.NewRequest("GET", "/", nil)
-	forbiddenRequest.Header.Set("Authorization", fmt.Sprintf("Bearer %s", string(suite.signedJWT)))
+	forbiddenRequest := httptest.NewRequestWithContext(context.Background(), http.MethodGet, "/", nil)
+	forbiddenRequest.Header.Set("Authorization", "Bearer "+string(suite.signedJWT))
 	response = httptest.NewRecorder()
 	h.ServeHTTP(response, forbiddenRequest)
 	suite.Equal(http.StatusForbidden, response.Code)
@@ -225,8 +225,8 @@ func (suite *AuthTestSuite) TestJwtAuth() {
 
 	// matching capabilities
 	auth.config.JWT.RequiredServiceCapabilities = []string{"example-capability"}
-	authorizedRequest := httptest.NewRequest("GET", "/", nil)
-	authorizedRequest.Header.Set("Authorization", fmt.Sprintf("Bearer %s", string(suite.signedJWT)))
+	authorizedRequest := httptest.NewRequestWithContext(context.Background(), http.MethodGet, "/", nil)
+	authorizedRequest.Header.Set("Authorization", "Bearer "+string(suite.signedJWT))
 	response = httptest.NewRecorder()
 	h.ServeHTTP(response, authorizedRequest)
 	suite.Equal(http.StatusOK, response.Code)
