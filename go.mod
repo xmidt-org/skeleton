@@ -12,7 +12,7 @@ require (
 	github.com/lestrrat-go/jwx/v4 v4.6.0
 	github.com/prometheus/client_golang v1.25.0
 	github.com/stretchr/testify v1.12.1
-	github.com/xmidt-org/arrange v0.5.10
+	github.com/xmidt-org/arrange v0.5.11
 	github.com/xmidt-org/bascule v1.8.3
 	github.com/xmidt-org/candlelight v0.4.2
 	github.com/xmidt-org/clortho v0.5.3
